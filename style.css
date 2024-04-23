@@ -1,0 +1,45 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: "IBM Plex Sans";
+	text-align: center;
+}
+
+img {
+	width: 25px;
+}
+
+#navBar {
+	width: 100%;
+	background-color: pink;
+	text-align: center;
+	border-bottom: solid 1px;
+	padding: 0.5% 0% 0.5% 0%;
+	display: flex;
+}
+
+#nav {
+	position: sticky;
+	width: 30%;
+	height: 1 em;
+	margin: auto;
+	font-weight: 500;
+}
+
+#navLogo {
+	width: 10% !important;
+}
+
+ #nav td {
+	width: 30%;
+}
+
+#logo {
+	background: blanchedalmond;
+	justify-content: center;
+}
+
+#logo > img {
+	margin: auto;
+	width: 80%;
+}

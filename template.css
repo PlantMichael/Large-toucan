@@ -1,0 +1,128 @@
+* {
+  --mainWidth: 65%;
+  --titleHeight: 7%;
+  overflow-wrap: break-word;
+  margin: 0px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+#title {
+	display: grid;
+	min-height: 65px;
+	height: var(--titleHeight);
+	align-items: center;
+	font-size: 30pt;
+	padding-top padding-bottom: 5px;
+	padding-left: 10px;
+	border-bottom-style: solid;
+	border-color: black;
+}
+
+#mainContainer {
+	display: flex;
+	height: 100%;
+	align-items: normal;
+}
+
+#sidebar {
+	display: flex;
+	flex-direction: column;
+	width: 35%;
+	position: sticky;
+	top: 0;
+	max-height: 100vh;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 0px 20px 0px 20px;
+	border-right-style: solid;
+	border-color: black;
+	flex-grow: 0;
+	background-color: pink;
+}
+
+#sidebar > div {
+
+}
+
+#main {
+	display: flex;
+	margin-left: auto;
+	flex-direction: column;
+	width: 65%;
+	height: 100%;
+	align-items: center;
+}
+
+#main > div {
+	margin: 20px;
+	padding: 30px;
+}
+
+img {
+	object-fit: contain;
+	max-width: 80%;
+}
+
+.mainPost {
+	border-style: solid hidden solid hidden;
+	border-color: black;
+	border-width: 2px;
+}
+
+#pfp {
+	transform: scaleX(-1);
+	float: left;
+	width: 15%;
+	min-width: 125px;
+	margin: 10px;
+}
+
+h2 {
+	font-size: 25pt;
+}
+
+@keyframes navAni {
+	0% {clip-path: polygon(49% 50%, 51% 50%, 51% 50%, 51% 50%, 49% 50%, 49% 50%)}
+	40% {clip-path: polygon(49% 100%, 51% 100%, 51% 100%, 51% 0%, 49% 0%, 49% 0%) }
+	40% {clip-path: polygon(49% 100%, 51% 100%, 51% 50%, 51% 0%, 49% 0%, 49% 50%) }
+	100% {clip-path: polygon(50% 100%, 50% 100%, 100% 50%, 50% 0%, 50% 0%, 0% 50%)}
+}
+@keyframes navAniSmall {
+	0% {clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%)}
+	40% {clip-path: polygon(50% 100%, 50% 100%, 50% 100%, 50% 0%, 50% 0%, 50% 0%) }
+	40% {clip-path: polygon(50% 99%, 50% 99%, 50% 50%, 50% 1%, 50% 1%, 50% 50%) }
+	100% {clip-path: polygon(50% 98.5%, 50% 98.5%, 98.5% 50%, 50% 1.5%, 50% 1.5%, 1.5% 50%)}
+}
+
+#matyroshka {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margins: 5px auto;
+	height: 300px;
+	width: 300px;
+	background-color: black;
+	animation-name: navAni;
+	animation-duration: 3s;
+	animation-direction: forwards;
+	animation-fill-mode: forwards;
+}
+
+#navContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margins: 5px auto;
+	height: 300px;
+	width: 300px;
+	background-color: white;
+	animation-name: navAniSmall;
+	animation-duration: 3s;
+	animation-direction: forwards;
+	animation-fill-mode: forwards;
+}
+
+#navTrigger:hover {
+	color: grey;
+}
