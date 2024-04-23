@@ -13,26 +13,60 @@
 
 	<header>
 		<div id="navBar">
-			<img src="squid.png">
+			<img src="img/logo.svg" id="navLogo">
 			<div id="searchBar">
-				<img src="magnifyingGlass.svg">
-				<div id="searchText"></div>
+				<form action="/search.php">
+					<input type="image" alt="search" src="img/magnifyingGlass.svg">
+					<input type="text" id="searchText"></input>
+				</form>
 			</div>
 			<div>Catalog</div>
 			<div>Our Story</div>
 			<div>The Nest
-				<img src="pfp.jpg">
+				<img src="img/pfp.jpg">
 			</div>
 		</div>
 	</header>
-	<div id="bigTitle"></div>
-		<div id="logo"><img src="fish.svg">
-		<p>it's like a normal toucan. but large.</p>
-		</div>
-	<div id="mainContent">
-		<p>At Large Toucan, we're not just Food Guys. We're Family Guys.</p> <!-- ???  -->
+	<div id="deptNav">
+		<div>Produce</div>
+		<div>Dairy</div>
+		<div>Meat</div>
+		<div>Bakery</div>
+		<div>Packaged Goods</div>
+		<div>Home Goods</div>
 	</div>
-	<footer></footer>
+	<div id="splash">
+		<div id="splashContent">
+			<p>We're not just Food Guys. We're Family Guys.</p>
+			<button type="button">Explore ➤</button>
+		</div>
+	</div>
+	<div id="deals">
+		<!--this is a template for what to do with the php. i guess. dude idk-->
+	</div>
+	<footer>
+		<div id="links">
+			<div id="contact">
+				<div>Contact Us</div>
+				<div>330-XXX-XXXX</div>
+				<div>support@largetoucan.com</div>
+				<div>3210 Toucan Drive</div>
+				<div>Kent, OH 44254</div>
+			</div>
+			<div id="socials">
+				<div><img src="twitter"></div>
+				<div><img src="insta"></div>
+				<div><img src="facebook"></div>
+				<div><img src="rss"></div>
+			</div>
+		</div>
+		<div id="mailing">
+			<p>Join our mailing list!</p>
+			<form action="none">
+				<input type="text" id="mailingList"><input type="image" src="letter" alt="enter email">
+			</form>
+		</div>
+	</footer>
 </main>
 </body>
 </html>
