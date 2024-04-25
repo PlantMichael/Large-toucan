@@ -5,9 +5,14 @@
 	text-align: center;
 }
 
-#header {
-	overflow: visible;
+main {
+	height: 100%;
+
 }
+
+
+/*nav bar ------------------------------------------------------------*/
+
 
 #navBar {
 	height: 50px;
@@ -69,6 +74,8 @@
 	border: 1px black solid;
 }
 
+/*department navigation bar -------------------------------------------*/
+
 #deptNav {
 	height: 30px;
 	width: 98.7%;
@@ -82,9 +89,10 @@
 	align-items: center;
 }
 
+/*welcome section ------------------------------------------------------*/
+
 #splash {
 	height: 400px;
-	background-color: green;
 	background-image: url(img/hate.png);
 	background-repeat: no-repeat;
 	background-position: right top;
@@ -103,4 +111,35 @@
 
 #splashContent {
 	padding-left: 10%;
+	font-size: 40px;
+	max-width: 50%
+}
+
+/*deals ---------------------------------------------------------------*/
+
+#deals {
+	background-color: orange;
+}
+
+/*bottom of page nonsense ---------------------------------------------*/
+
+.socials {
+	width: 50px;
+	height: 50px;
+}
+
+#socials {
+	flex-wrap: wrap;
+	display: flex;
+	max-width: 100px;
+	padding: 5px;
+}
+
+#links {
+	display: flex;
+	justify-content: center;
+}
+
+#mailingList {
+	text-align: left;
 }
