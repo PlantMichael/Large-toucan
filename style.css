@@ -26,7 +26,6 @@ main {
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
-	top: 0px;
 }
 
 #navLogo {
@@ -87,6 +86,7 @@ main {
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
+	font-weight: bold;
 }
 
 /*welcome section ------------------------------------------------------*/
@@ -119,6 +119,49 @@ main {
 
 #deals {
 	background-color: orange;
+	border-top: 2px solid;
+	text-justify: center;
+	padding-bottom: 5px;
+}
+
+#dailyDealsHeader {
+	font-size: 30px;
+	font-weight: bold;
+	padding: 20px;
+	width: 100%;
+}
+
+#dailyDealsHeader > div {
+	text-align: left;
+}
+
+#dealsViewAll {
+	font-size: 18px;
+	font-weight: 400;
+}
+
+#dealsSeperator {
+	width: 90%;
+	margin: auto;
+	border: 1px solid black;
+}
+
+#dealsContainer {
+	display: flex;
+	margin: 10px;
+	align-items: center;
+	justify-content: center;
+}
+
+.dealBox {
+	background-color: white;
+	height: 200px;
+	width: 175px;
+	border-radius: 15px;
+}
+
+.dealPic {
+	max-width: 100%;
 }
 
 /*bottom of page nonsense ---------------------------------------------*/
