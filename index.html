@@ -1,15 +1,11 @@
 <!--TODO:
 context nav to signup/signin when you mess w the nest, see your page, etc
-populate dealz
 if we really feel like getting crazy get a pfp thing up and running. db extension shouldnt be too hard
-make colors and padding normal or whatever
 depts should just return search with their department. if we have time we can make them custom pages but we wont so
 our story page. idk i'll make some stuff up
-link the socials to crouton.net or something
 replace the family guy joke get real
 make the search results page good god what is wrong with you
 link all the bars + buttons to their actual things
-change the bar font maybe
 -->
 
 <!DOCTYPE html>
@@ -24,28 +20,13 @@ change the bar font maybe
 </head>
 <body>
 <main>
-	<div id="navBar">
-		<img src="img/toucanSmashVariant.svg" id="navLogo">
-		<div id="searchBar">
-			<form action="/search.php">
-				<input type="image" alt="search" src="img/search.svg" id="searchImg">
-				<input type="text" id="searchText" placeholder="Search for item..."></input>
-			</form>
-		</div>
-		<div><a href="catalog.php">Catalog</a></div>
-		<div><a href="#deals">Deals</a></div>
-		<div><a href="story.html">Our Story</a></div>
-		<div id ="toNest"><a href="userPage.html">The Nest
-			<img src="img/pfp.png" id="pfp">
-		</a></div>
-	</div>
 	<div id="deptNav">
-		<div>Produce</div>
-		<div>Dairy</div>
-		<div>Meat</div>
-		<div>Bakery</div>
-		<div>Packaged Goods</div>
-		<div>Home Goods</div>
+		<div><a href="catalog.php">Produce</a></div>
+		<div><a href="catalog.php">Dairy</a></div>
+		<div><a href="catalog.php">Meat</a></div>
+		<div><a href="catalog.php">Bakery</a></div>
+		<div><a href="catalog.php">Packaged Goods</a></div>
+		<div><a href="catalog.php">Home Goods</a></div>
 	</div>
 	<div id="splash">
 	<div id="splashGradient">
@@ -63,82 +44,23 @@ change the bar font maybe
 		</div>
 		<hr id ="dealsSeperator">
 		<div id="dealsContainer">
+			<!--this is your template for a deal. deals ought to be loaded w php. flexbox handles it,
+				so in a just world you should be able to put in one million peanuts if you really wanna-->
 			<div class="dealBox">
+				<a href="catalog.php">
 				<div class="dealPic"><img src="img/peanut.jpg"></div>
 				<hr>
 				<div class="dealItemName">peanuts</div>
 				<div class="dealPrice">$1.99 <s>$2.00</s></div>
+				</a>
 			</div>
-			<div class="dealBox">
-				<div class="dealPic"><img src="img/peanut.jpg"></div>
-				<hr>
-				<div class="dealItemName">peanuts</div>
-				<div class="dealPrice">$1.99 <s>$2.00</s></div>
-			</div>
-			<div class="dealBox">
-				<div class="dealPic"><img src="img/peanut.jpg"></div>
-				<hr>
-				<div class="dealItemName">peanuts</div>
-				<div class="dealPrice">$1.99 <s>$2.00</s></div>
-			</div>
-			<div class="dealBox">
-				<div class="dealPic"><img src="img/peanut.jpg"></div>
-				<hr>
-				<div class="dealItemName">peanuts</div>
-				<div class="dealPrice">$1.99 <s>$2.00</s></div>
-			</div>
-			<div class="dealBox">
-				<div class="dealPic"><img src="img/peanut.jpg"></div>
-				<hr>
-				<div class="dealItemName">peanuts</div>
-				<div class="dealPrice">$1.99 <s>$2.00</s></div>
-			</div>
-			<div class="dealBox">
-				<div class="dealPic"><img src="img/peanut.jpg"></div>
-				<hr>
-				<div class="dealItemName">peanuts</div>
-				<div class="dealPrice">$1.99 <s>$2.00</s></div>
-			</div>
-			<div class="dealBox">
-				<div class="dealPic"><img src="img/peanut.jpg"></div>
-				<hr>
-				<div class="dealItemName">peanuts</div>
-				<div class="dealPrice">$1.99 <s>$2.00</s></div>
-			</div>
-				<div class="dealBox">
-				<div class="dealPic"><img src="img/peanut.jpg"></div>
-				<hr>
-				<div class="dealItemName">peanuts</div>
-				<div class="dealPrice">$1.99 <s>$2.00</s></div>
-			</div>
+			<!--end of template-->
 		</div>
 	</div>
-	<footer>
-		<div id="links">
-			<div id="contact">
-				<div>Contact Us</div>
-				<div>330-XXX-XXXX</div>
-				<div>support@largetoucan.com</div>
-				<div>3210 Toucan Drive</div>
-				<div>Kent, OH 44254</div>
-			</div>
-			<div id="socials">
-				<div><a href="twitter.txt"><img src="img/square-twitter.svg" class="socials"></a></div>
-				<div><a href="https://www.facebook.com/groups/1963472884046503/"><img src="img/square-facebook.svg" class="socials"></a></div>
-				<div><a href="https://www.instagram.com/chester_the_toucan/"tw><img src="img/square-instagram.svg" class="socials"></a></div>
-				<div><a href="https://crouton.net"><img src="img/square-rss.svg" class="socials"></a></div>
-			</div>
-		</div>
-		<div id="mailing">
-			<p>Join our mailing list!</p>
-			<form action="none" id="mailForm">
-				<input type="text" id="mailingList" placeholder="yourEmail@website.com"><input type="submit" id="mailingListSubmit" value="Submit" alt="enter email">
-			</form>
-		</div>
-	</footer>
 </main>
 </body>
 </html>
+
 <!--
 Resources:
 	google fonts: https://fonts.google.com/

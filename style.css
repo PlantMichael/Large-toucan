@@ -15,10 +15,12 @@ main {
 	--orange: #E96F0C;
 	--white: #EADDC4;
 	--black: #67667A;
-	--blue: #88D0E3;
+	--blue: #16A1C5;
 	--red: #CC5A68;
 	--green: #96CC5A;
 	--greenDown: #46B557;
+	--orangeDown: #F2AA60;
+	--greenDownDown : #118C42;
   }
   
 
@@ -51,8 +53,13 @@ main {
 	background-color: var(--green);
 }
 
+#navBar > div > a:active {
+	background-color: var(--greenDown);
+	color: white;
+}
+
 #navLogo {
-	height: 80%;
+	height: 37px;
 }
 
 #searchBar {
@@ -63,11 +70,11 @@ main {
 	align-items: center;
 	justify-content: flex-start;
 	border-radius: 50px;
-	border: 1px solid var(--black);
+	outline: 2px solid var(--black);
 }
 
 #searchBar:focus-within {
-	border: 1px solid black;
+	outline: 2px solid var(--blue);
 }
 
 #searchBar > * {
@@ -90,12 +97,14 @@ main {
 	outline: none;
 	border: none;
 	background-color: var(--white);
+	font-size: 12pt;
 }
 
 
-#toNest {
+#toNest > a {
 	display: flex;
 	align-items: center;
+	padding: 0px;
 }
 
 #pfp {
@@ -120,6 +129,23 @@ main {
 	align-items: center;
 	font-weight: bold;
 	color: white;
+}
+
+#deptNav > div > a {
+	padding: 5px 10px 5px 10px;
+	color: white;
+	text-decoration: none;
+}
+
+#deptNav > div > a:hover {
+	background-color: var(--orangeDown);
+	padding: 5px 10px 5px 10px;
+	border-radius: 10px;
+	color: black;
+}
+
+#deptNav > div > a:active {
+	color: var(--black);
 }
 
 /*splash section ------------------------------------------------------i dont think this is even technically a splash whatever*/
@@ -164,6 +190,9 @@ main {
 	background-color: var(--greenDown);
 	color: white;
 }
+#splashContent > a:hover {
+	background-color: var(--greenDown);
+}
 
 
 /*deals ---------------------------------------------------------------*/
@@ -182,7 +211,7 @@ main {
 	font-weight: bold;
 	padding: 20px;
 	width: 100%;
-	margin-left: 100px;
+	padding-left: 100px;
 }
 
 #dailyDealsHeader > div {
@@ -195,7 +224,15 @@ main {
 }
 
 #dealsViewAll > a {
+	color: var(--blue);
+}
+
+#dealsViewAll > a:hover {
 	color: var(--black);
+}
+
+#dealsViewAll > a:active {
+	color: black;
 }
 
 #dealsSeperator {
@@ -222,6 +259,19 @@ main {
 	padding-top: 15px;
 	margin: 10px;
 	border: 3px solid var(--green);
+}
+
+.dealBox > * {
+	color: black;
+	text-decoration: none;
+}
+
+.dealBox:hover {
+	border: 3px solid var(--greenDown);
+}
+
+.dealBox:active {
+	border: 3px solid var(--greenDownDown);
 }
 
 .dealBox > hr {
@@ -267,6 +317,14 @@ footer {
 	filter: invert(77%) sepia(25%) saturate(768%) hue-rotate(45deg) brightness(91%) contrast(95%);
 }
 
+#socials > div > a > img:hover {
+	filter: invert(84%) sepia(8%) saturate(5876%) hue-rotate(67deg) brightness(85%) contrast(60%);
+}
+
+#socials > div > a > img:active {
+	filter: invert(35%) sepia(96%) saturate(389%) hue-rotate(91deg) brightness(100%) contrast(98%);
+}
+
 #links {
 	display: flex;
 	justify-content: center;
@@ -285,6 +343,8 @@ footer {
 	padding: 3px 5px;
 	border: var(--orange) solid 1px;
 	font-weight: 300;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 
 #mailingList:focus {
@@ -298,6 +358,17 @@ footer {
 	padding: 0px 5px 0px 5px;
 	background-color: var(--orange);
 	color: white;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#mailingListSubmit:hover {
+	background-color: var(--orangeDown);
+	color: black;
+}
+
+#mailingListSubmit:active {
+	color: var(--black);
 }
 
 #mailForm {
