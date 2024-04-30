@@ -3,43 +3,78 @@
 	padding: 0px;
 	font-family: "IBM Plex Sans";
 	text-align: center;
+	box-sizing: border-box;
 }
 
 main {
 	height: 100%;
-
+	width: 100%;
 }
+
+:root {
+	--orange: #E96F0C;
+	--white: #EADDC4;
+	--black: #67667A;
+	--blue: #16A1C5;
+	--red: #CC5A68;
+	--green: #96CC5A;
+	--greenDown: #46B557;
+	--orangeDown: #F2AA60;
+	--greenDownDown : #118C42;
+  }
+  
 
 /*nav bar ------------------------------------------------------------*/
 
 
 #navBar {
-	height: 50px;
+	height: 60px;
 	width: 100%;
 	padding: 5px 10px 5px 10px;
-	background-color: pink;
-	border-bottom: 1px solid black;
+	background-color: white;
+	border-bottom: 2px solid var(--orange);
 	position: sticky;
 	font-weight: 500;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
-	top: 0
+	top: 0;
+}
+
+#navBar > div > a {
+	color: black;
+	text-decoration: none;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+#navBar > div > a:hover {
+	background-color: var(--green);
+}
+
+#navBar > div > a:active {
+	background-color: var(--greenDown);
+	color: white;
 }
 
 #navLogo {
-	height: 80%;
+	height: 37px;
 }
 
 #searchBar {
 	width: 40%;
-	background-color: yellow;
+	background-color: var(--white);
 	height: 40px;
 	display: block;
 	align-items: center;
 	justify-content: flex-start;
 	border-radius: 50px;
+	outline: 2px solid var(--black);
+}
+
+#searchBar:focus-within {
+	outline: 2px solid var(--blue);
 }
 
 #searchBar > * {
@@ -57,12 +92,19 @@ main {
 	display: flex;
 	text-align:left;
 	padding: 0px;
-	width: 87%;
+	width: 100%;
+	margin-right: 5%;
+	outline: none;
+	border: none;
+	background-color: var(--white);
+	font-size: 12pt;
 }
 
-#toNest {
+
+#toNest > a {
 	display: flex;
 	align-items: center;
+	padding: 0px;
 }
 
 #pfp {
@@ -76,31 +118,48 @@ main {
 /*department navigation bar -------------------------------------------*/
 
 #deptNav {
-	height: 30px;
-	width: 98.7%;
+	height: 40px;
+	width: 100%;
 	padding: 5px 10px 5px 10px;
-	background-color: lightcyan;
-	border-bottom: 1px solid black;
+	background-color: var(--orange);
 	font-weight: 500;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
 	font-weight: bold;
+	color: white;
 }
 
-/*welcome section ------------------------------------------------------*/
+#deptNav > div > a {
+	padding: 5px 10px 5px 10px;
+	color: white;
+	text-decoration: none;
+}
+
+#deptNav > div > a:hover {
+	background-color: var(--orangeDown);
+	padding: 5px 10px 5px 10px;
+	border-radius: 10px;
+	color: black;
+}
+
+#deptNav > div > a:active {
+	color: var(--black);
+}
+
+/*splash section ------------------------------------------------------i dont think this is even technically a splash whatever*/
 
 #splash {
 	height: 400px;
-	background-image: url(img/hate.png);
+	background-image: url(img/hateExtended.png);
 	background-repeat: no-repeat;
 	background-position: right top;
-	background-size: 60% 100%;
+	background-size: cover 100%; /*this could be fixed if i did a viewport. i do not want to do a viewport.*/
 }
 
 #splashGradient {
-	background-image: linear-gradient(105deg, white 50%, #ff000000 70%);
+	background-image: linear-gradient(105deg, white 45%, #ff000000 60%);
 	display: flex;
 	width: 100%;
 	padding: 0px;
@@ -112,23 +171,47 @@ main {
 #splashContent {
 	padding-left: 10%;
 	font-size: 40px;
-	max-width: 50%
+	max-width: 50%;
+	font-weight: 500;
 }
+
+#splashContent > a {
+	background-color: var(--green);
+	border: none;
+	padding: 5px 15px 5px 15px;
+	border-radius: 15px;
+	font-size: 20px;
+	color: black;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+#splashContent > a:active {
+	background-color: var(--greenDown);
+	color: white;
+}
+#splashContent > a:hover {
+	background-color: var(--greenDown);
+}
+
 
 /*deals ---------------------------------------------------------------*/
 
 #deals {
-	background-color: orange;
-	border-top: 2px solid;
+	background-color: var(--white);
+	border-top: 1px solid var(--black);
 	text-justify: center;
 	padding-bottom: 5px;
+	display: flex;
+	flex-direction: column;
 }
 
 #dailyDealsHeader {
-	font-size: 30px;
+	font-size: 40px;
 	font-weight: bold;
 	padding: 20px;
 	width: 100%;
+	padding-left: 100px;
 }
 
 #dailyDealsHeader > div {
@@ -136,8 +219,20 @@ main {
 }
 
 #dealsViewAll {
-	font-size: 18px;
+	font-size: 22px;
 	font-weight: 400;
+}
+
+#dealsViewAll > a {
+	color: var(--blue);
+}
+
+#dealsViewAll > a:hover {
+	color: var(--black);
+}
+
+#dealsViewAll > a:active {
+	color: black;
 }
 
 #dealsSeperator {
@@ -151,6 +246,9 @@ main {
 	margin: 10px;
 	align-items: center;
 	justify-content: center;
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .dealBox {
@@ -158,13 +256,49 @@ main {
 	height: 200px;
 	width: 175px;
 	border-radius: 15px;
+	padding-top: 15px;
+	margin: 10px;
+	border: 3px solid var(--green);
 }
 
-.dealPic {
-	max-width: 100%;
+.dealBox > * {
+	color: black;
+	text-decoration: none;
 }
 
+.dealBox:hover {
+	border: 3px solid var(--greenDown);
+}
+
+.dealBox:active {
+	border: 3px solid var(--greenDownDown);
+}
+
+.dealBox > hr {
+	margin: 0px 10px 0px 10px;
+}
+
+.dealPic > img {
+	height: 100px;
+	width: 175px;
+	object-fit: contain;
+}
+
+.dealPrice {
+	font-size: 20px;
+}
+
+.dealPrice > s {
+	color: var(--red);
+	font-size: 16px;
+}
 /*bottom of page nonsense ---------------------------------------------*/
+
+
+footer {
+	padding-top: 30px;
+
+}
 
 .socials {
 	width: 50px;
@@ -174,15 +308,70 @@ main {
 #socials {
 	flex-wrap: wrap;
 	display: flex;
-	max-width: 100px;
+	max-width: 150px;
 	padding: 5px;
+	gap: 3px;
+}
+
+#socials > div > a > img { /*i deserve to die for this*/
+	filter: invert(77%) sepia(25%) saturate(768%) hue-rotate(45deg) brightness(91%) contrast(95%);
+}
+
+#socials > div > a > img:hover {
+	filter: invert(84%) sepia(8%) saturate(5876%) hue-rotate(67deg) brightness(85%) contrast(60%);
+}
+
+#socials > div > a > img:active {
+	filter: invert(35%) sepia(96%) saturate(389%) hue-rotate(91deg) brightness(100%) contrast(98%);
 }
 
 #links {
 	display: flex;
 	justify-content: center;
+	gap: 20px;
+	align-items: center;
+}
+
+#mailing {
+	padding-top: 20px;
+	padding-bottom: 40px;
 }
 
 #mailingList {
 	text-align: left;
+	height: 100%;
+	padding: 3px 5px;
+	border: var(--orange) solid 1px;
+	font-weight: 300;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+#mailingList:focus {
+	outline: none;
+	border: #C03500 solid 1px;
+}
+
+#mailingListSubmit {
+	border: 0px;
+	height: 100%;
+	padding: 0px 5px 0px 5px;
+	background-color: var(--orange);
+	color: white;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#mailingListSubmit:hover {
+	background-color: var(--orangeDown);
+	color: black;
+}
+
+#mailingListSubmit:active {
+	color: var(--black);
+}
+
+#mailForm {
+	height: 30px;
+	margin-top: 10px;
 }

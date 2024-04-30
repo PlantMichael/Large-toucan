@@ -1,15 +1,11 @@
 <!--TODO:
 context nav to signup/signin when you mess w the nest, see your page, etc
-populate dealz
 if we really feel like getting crazy get a pfp thing up and running. db extension shouldnt be too hard
-make colors and padding normal or whatever
 depts should just return search with their department. if we have time we can make them custom pages but we wont so
 our story page. idk i'll make some stuff up
-link the socials to crouton.net or something
 replace the family guy joke get real
 make the search results page good god what is wrong with you
 link all the bars + buttons to their actual things
-change the bar font maybe
 -->
 
 <!DOCTYPE html>
@@ -24,83 +20,51 @@ change the bar font maybe
 </head>
 <body>
 <main>
-	<div id="navBar">
-		<img src="img/logo.svg" id="navLogo">
-		<div id="searchBar">
-			<form action="/search.php">
-				<input type="image" alt="search" src="img/search.svg" id="searchImg">
-				<input type="text" id="searchText" placeholder="Search for item..."></input>
-			</form>
-		</div>
-		<div>Catalog</div>
-		<div>Deals</div>
-		<div>Our Story</div>
-		<div id ="toNest">The Nest
-			<img src="img/pfp.png" id="pfp">
-		</div>
-	</div>
 	<div id="deptNav">
-		<div>Produce</div>
-		<div>Dairy</div>
-		<div>Meat</div>
-		<div>Bakery</div>
-		<div>Packaged Goods</div>
-		<div>Home Goods</div>
+		<div><a href="catalog.php">Produce</a></div>
+		<div><a href="catalog.php">Dairy</a></div>
+		<div><a href="catalog.php">Meat</a></div>
+		<div><a href="catalog.php">Bakery</a></div>
+		<div><a href="catalog.php">Packaged Goods</a></div>
+		<div><a href="catalog.php">Home Goods</a></div>
 	</div>
 	<div id="splash">
 	<div id="splashGradient">
 		<div id="splashContent">
 			<p>We're not just Food Guys.<br>We're Family Guys.</p>
-			<button type="button">Explore ➤</button>
+			<a href="/catalog.php">Explore ➤</a>
 		</div>
 		</div>
 	</div>
 	<div id="deals">
 		<!--this is a template for what to do with the php. i guess. dude idk-->
-		mike this is your problem. you need to help me populate this and then we need to figure out how to do it with php like a happy family
 		<div id="dailyDealsHeader">
 			<div>Daily Deals</div>
-			<div id="dealsViewAll">View all ➤</div>
+			<div id="dealsViewAll"><a href="deals.php">View all ➤</a></div>
 		</div>
 		<hr id ="dealsSeperator">
 		<div id="dealsContainer">
+			<!--this is your template for a deal. deals ought to be loaded w php. flexbox handles it,
+				so in a just world you should be able to put in one million peanuts if you really wanna-->
 			<div class="dealBox">
-				<div class="dealPic"><img src="img/peanute.jpg"></div>
+				<a href="catalog.php">
+				<div class="dealPic"><img src="img/peanut.jpg"></div>
 				<hr>
 				<div class="dealItemName">peanuts</div>
 				<div class="dealPrice">$1.99 <s>$2.00</s></div>
+				</a>
 			</div>
+			<!--end of template-->
 		</div>
 	</div>
-	<footer>
-		<div id="links">
-			<div id="contact">
-				<div>Contact Us</div>
-				<div>330-XXX-XXXX</div>
-				<div>support@largetoucan.com</div>
-				<div>3210 Toucan Drive</div>
-				<div>Kent, OH 44254</div>
-			</div>
-			<div id="socials">
-				<div><img src="img/square-twitter.svg" class="socials"></div>
-				<div><img src="img/square-facebook.svg" class="socials"></div>
-				<div><img src="img/square-instagram.svg" class="socials"></div>
-				<div><img src="img/square-rss.svg" class="socials"></div>
-			</div>
-		</div>
-		<div id="mailing">
-			<p>Join our mailing list!</p>
-			<form action="none">
-				<input type="text" id="mailingList" placeholder="yourEmail@website.com"><input type="submit" value="Submit" alt="enter email">
-			</form>
-		</div>
-	</footer>
 </main>
 </body>
 </html>
+
 <!--
 Resources:
 	google fonts: https://fonts.google.com/
 	fontawesome: https://fontawesome.com/
 	stupid bird im using as a pfp: https://unsplash.com/@andreusphoto/
+	filter to convert svg colors: https://codepen.io/sosuke/pen/Pjoqqp/
 -->
