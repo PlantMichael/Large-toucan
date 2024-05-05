@@ -11,6 +11,15 @@ main {
 	width: 100%;
 }
 
+h4 {
+	font-size: 14pt;
+}
+
+h3 {
+	font-size: 18pt;
+}
+
+
 :root {
 	--orange: #E96F0C;
 	--white: #EADDC4;
@@ -21,6 +30,10 @@ main {
 	--greenDown: #46B557;
 	--orangeDown: #F2AA60;
 	--greenDownDown : #118C42;
+  }
+
+  s {
+	color: var(--red);
   }
   
 
@@ -80,6 +93,10 @@ main {
 #searchBar > * {
 	display: flex;
 	margin-top: 10px;
+}
+
+#searchSubmit {
+	display: none;
 }
 
 #searchImg {
@@ -289,7 +306,6 @@ main {
 }
 
 .dealPrice > s {
-	color: var(--red);
 	font-size: 16px;
 }
 /*bottom of page nonsense ---------------------------------------------*/
@@ -297,6 +313,7 @@ main {
 
 footer {
 	padding-top: 30px;
+	border-top: 2px solid var(--orange)
 
 }
 
@@ -330,6 +347,13 @@ footer {
 	justify-content: center;
 	gap: 20px;
 	align-items: center;
+}
+
+#contactHR {
+	width: 80%;
+	margin: 5px auto;
+	border: 2px solid var(--orange);
+	border-radius: 5px;
 }
 
 #mailing {
@@ -374,4 +398,198 @@ footer {
 #mailForm {
 	height: 30px;
 	margin-top: 10px;
+}
+
+/*search page --------------------------------------------------------*/
+
+#searchHeader {
+	margin-top: 15px;
+	text-align: left;
+	padding: 10px 10px 10px 20px;
+	font-weight: 700;
+	font-size: 20pt;
+}
+
+#searchWrapper {
+	display: flex;
+	flex-direction: row;
+}
+
+
+/*filters -----------------------------------------------------------------------------------*/
+#filters > form {
+	width: 25%;
+}
+
+#filters {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	padding: 15px;
+	width: 100%;
+	max-width: 300px;
+}
+
+#filters > div > div {
+	padding-left: 30px;
+	text-align: left;
+	font-weight: 500;
+	margin: 3px 0px 3px 0px;
+}
+
+#filters > div > div:hover {
+	background-color: var(--orangeDown);
+}
+
+#activeFilters:hover, #activeFilters:active, #filterPriceContainer {
+	background-color: white !important;
+	color: black !important;
+}
+
+.activeFilters {
+	margin: 3px;
+}
+
+#filters > div > div:active {
+	background-color: var(--orange);
+	color: white;
+}
+
+#filters > div, #filters > div > h4, #filters > div > h3 {
+	text-align: left;
+}
+
+#activeFilters, #activeFilers > div, #activeFilters > div > div { /*maybe flexbox was a mistake*/
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+#filterPriceContainer {
+	display: flex;
+	gap: 5px;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	align-items: center;	
+}
+
+#filterPriceContainer > * {
+	width: 30%;
+	max-width: 50px;
+	min-width: 40px;
+	border-radius: 5px;
+	border: 1px solid var(--black);
+}
+
+#filterPriceSubmit {
+	background-color: var(--green);
+	padding: 1px 0px 1px 0px;
+	border: none;
+	width: 0px
+}
+
+#filterPriceSubmit:hover {
+	background-color: var(--greenDown);
+}
+
+#filterPriceSubmit:active {
+	background-color: var(--greenDownDown);
+	color: white;
+}
+
+
+#activeFilters > div:active {
+	background-color: var(--greenDown);
+	color: white;
+}
+
+#activeFilters > div {
+	background-color: var(--green);
+	border-radius: 10px;
+	padding: 5px 10px 5px 10px;
+	align-items: center;
+}
+
+#activeFilters > div > div { /*i do not deserve to graduate maybe*/
+	align-items: center;
+	gap: 5px;
+}
+
+#filters > hr {
+	margin: 10px 10px 10px 10px;
+	border: 1px solid var(--green)
+}
+
+#activeFilters > div > div > img {
+	width: 10px;
+}
+
+#activeFilters > div > div > img:hover {
+	filter: invert(54%) sepia(19%) saturate(6222%) hue-rotate(156deg) brightness(92%) contrast(83%);
+}
+
+#activeFilters > div > div > img:active {
+	filter: invert(98%) sepia(98%) saturate(6%) hue-rotate(136deg) brightness(102%) contrast(104%);
+}
+
+/*results ------------------------------------------------------------------------------------*/
+
+#resultContainer {
+	width: 75%;
+}
+
+#results {
+	display: flex;
+	margin:  30px 10px;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.resultBox {
+	background-color: white;
+	height: 210px;
+	width: 180px;
+	border-radius: 15px;
+	margin: 10px;
+	border-radius: 15px;
+	border: 3px solid var(--green);
+	padding: 15px;
+}
+
+.resultName {
+	text-align: left;
+	font-weight: 600;
+	font-size: 16pt;
+	height: 20%;
+}
+
+.resultLocation {
+	text-align: left;
+	color: var(--black);
+	margin-bottom: 5px;
+	height: 15%;
+}
+
+.resultPrice > s {
+	font-size: 14pt;
+}
+
+.resultPrice {
+	font-size: 20pt;
+	height: 35%;
+}
+
+.resultStock {
+	margin-top: 5px;
+	height: 15%;
+	font-size: 14pt;
+}
+
+.resultLimited {
+	color: var(--red);
+	font-weight: 500;
+	font-size: 12pt;
 }

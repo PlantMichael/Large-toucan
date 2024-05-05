@@ -3,12 +3,16 @@ context nav to signup/signin when you mess w the nest, see your page, etc
 if we really feel like getting crazy get a pfp thing up and running. db extension shouldnt be too hard
 depts should just return search with their department. if we have time we can make them custom pages but we wont so
 our story page. idk i'll make some stuff up
-replace the family guy joke get real
 make the search results page good god what is wrong with you
 link all the bars + buttons to their actual things
 -->
 
 <!DOCTYPE html>
+
+<?php
+include '../../config/config.inc';
+?>
+
 <html lang="en-US">
 <head>
 	<link rel="stylesheet" href="style.css" type="text/css">
@@ -20,6 +24,7 @@ link all the bars + buttons to their actual things
 </head>
 <body>
 <main>
+<?php echo $html = file_get_contents('header.html')?>
 	<div id="deptNav">
 		<div><a href="catalog.php">Produce</a></div>
 		<div><a href="catalog.php">Dairy</a></div>
@@ -37,15 +42,43 @@ link all the bars + buttons to their actual things
 		</div>
 	</div>
 	<div id="deals">
-		<!--this is a template for what to do with the php. i guess. dude idk-->
 		<div id="dailyDealsHeader">
 			<div>Daily Deals</div>
 			<div id="dealsViewAll"><a href="deals.php">View all ➤</a></div>
 		</div>
 		<hr id ="dealsSeperator">
 		<div id="dealsContainer">
+
+
+		<?php
+		// Create connection
+
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		$x = 1;
+		// Check connection
+		if ($conn->connect_error or $x = 1) { //if there is a connection error so be it. congrats the only deal is peanut
+									//this is terrible for a grocery store, but for a fake project, ensures there's SOMETHING
+			for ($i = 0; $i < 10; $i++) {
+				echo "<div class=\"dealBox\">
+				<a href=\"catalog.php\">
+				<div class=\"dealPic\"><img src=\"img/peanut.jpg\"></div>
+				<hr>
+				<div class=\"dealItemName\">peanuts</div>
+				<div class=\"dealPrice\">$1.99 <s>$2.00</s></div>
+				</a>
+				</div>";
+			}
+		}
+		else {
+
+		}
+
+		$conn->close();
+		?>
+
+
 			<!--this is your template for a deal. deals ought to be loaded w php. flexbox handles it,
-				so in a just world you should be able to put in one million peanuts if you really wanna-->
+				so in a just world you should be able to put in one million peanuts if you really wanna.
 			<div class="dealBox">
 				<a href="catalog.php">
 				<div class="dealPic"><img src="img/peanut.jpg"></div>
@@ -54,9 +87,10 @@ link all the bars + buttons to their actual things
 				<div class="dealPrice">$1.99 <s>$2.00</s></div>
 				</a>
 			</div>
-			<!--end of template-->
+			end of template-->
 		</div>
 	</div>
+	<?php echo $html = file_get_contents('footer.html')?>
 </main>
 </body>
 </html>
