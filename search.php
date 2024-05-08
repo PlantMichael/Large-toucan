@@ -1,11 +1,11 @@
-<!--
-	the discount situation is pretty nasty. need filtering and displaying of discounts
-	need to make sure links are happy little campers everywhere on earth
-	daily deals needs to get its shit together but again the deals situation is fucked
-	dont talk to me about the next
-	sql injection prevention
--->
-
+<!DOCTYPE php>
+<?php
+include '../../config/config.inc';
+$conn = new mysqli($servername, $username, $password, $dbname);
+$searchQuery = $_GET["q"];
+error_reporting(E_ALL); //LIGHT OF MY LIFE ENABLES DEBUGGING AND ALSO LOVE AND KINDNESS
+ini_set('display_errors', 1);
+?>
 <html lang="en-US" class=" ilpng idc0_350"><head>
 	<link rel="stylesheet" href="style.css" type="text/css">
 	<link rel="icon" href="squid.png" type="image/x-icon">
@@ -27,12 +27,11 @@
 			</div>
 			<hr>
 			<div><h4>Department</h4>
-				<div>Produce</div>
+				<div>Fruit</div>
+				<div>Vegetable</div>
+				<div>Grain</div>
 				<div>Dairy</div>
-				<div>Meat</div>
-				<div>Bakery</div>
-				<div>Packaged Goods</div>
-				<div>Home Goods</div>
+				<div>Produce</div>
 			</div>
 			<hr>
 			<div><h4>Price Range</h4>
@@ -42,8 +41,8 @@
 				<div>$25 - $50</div>
 				<div>$50 <</div>
 				<div id="filterPriceContainer"><form action="/search.php" id="filterPrice" method="get">
-					From<input type="text" name="min" placeholder="$0"></input>
-					To <input type="text" name="max" placeholder="$100"></input>
+					From<input type="text" name="min" placeholder="$0" class="customFilterPriceIn"></input>
+					To <input type="text" name="max" placeholder="$100" class="customFilterPriceIn"></input>
 					<input type="submit" value="Go" id="filterPriceSubmit"></input>
 				</form></div>
 			</div>
@@ -55,52 +54,124 @@
 			</div>
 			<hr>
 			<div><h4>Discount</h4>
-				<div>dude idk what we're putting in here</div>
+				<div>Full Price</div>
+				<div>Discounted</div>
 
 			</div>
 		</div>
 		</form>
 		<div id="resultContainer">
 			<div id ="searchHeader">
-				Showing results for "Bees":
+			<?php
+			if ($conn->connect_error) {
+				echo "<h1>Connection error. Please try again later.</h1>";
+			}
+			if (!empty($_GET["q"])) { 
+				echo "Showing results for \"".$searchQuery."\":";
+			}
+			?>
 			</div>
 			<div id="results">
-				<div class="resultBox">
-					<p class="resultName">PEANUT</p>
-					<p class="resultLocation">Nuts | Aisle A4</p>
-					<p class="resultPrice">$2.00 <s>$1.99</s></p>
-					<hr>
-					<div class="resultStock"><p>In Stock</p><p class="resultLimited">Only 1 left!</p></div>
-				</div>
-				<div class="resultBox">
-					<p class="resultName">jeff probst</p>
-					<p class="resultLocation">I Hate You | Aisle H311</p>
-					<p class="resultPrice">$0.00</p>
-					<hr>
-					<div class="resultStock"><p>Out of Stock!</p></div>
-				</div>
-				<div class="resultBox">
-					<p class="resultName">PEANUT 2</p>
-					<p class="resultLocation">Packaged | Aisle A4</p>
-					<p class="resultPrice">$400.00 <s>$300.00</s></p>
-					<hr>
-					<div class="resultStock"><p>In Stock</p></div>
-				</div>
-				<div class="resultBox">
-					<p class="resultName">dish soap</p>
-					<p class="resultLocation">Nuts | Aisle Q9</p>
-					<p class="resultPrice">$3.29</p>
-					<hr>
-					<div class="resultStock"><p>In Stock</p><p class="resultLimited">Only 3200 left!</p></div>
-				</div>
+			<?php
+			//gets products
+			//i'd like to figure out how to use multiple statements and not 1 gargantuan statement... oh well
+			$sqlstatement = $conn->prepare("SELECT product.product_ID, product_name, category, aisle_location, price, quantity_in_stock, value, type, review.review_ID FROM product
+											LEFT JOIN discount ON discount.product_ID = product.product_ID
+											LEFT JOIN review ON review.product_ID = product.product_ID WHERE product.product_name LIKE ?
+											ORDER BY product.product_ID"); //prepare the statement
+			$toBind = "%".$searchQuery."%"; //concatenation is dots in php. on a related note i am turning into a tormented fish
+			$sqlstatement->bind_param("s", $toBind);  //put real query into prepared statement
+			if ($searchQuery == "") {
+				$sqlstatement = $conn->prepare("SELECT product.product_ID, product_name, category, aisle_location, price, quantity_in_stock, value, type, review.review_ID FROM product
+												LEFT JOIN discount ON discount.product_ID = product.product_ID
+												LEFT JOIN review ON review.product_ID = product.product_ID
+												ORDER BY product.product_ID"); //if no search, return all
+			}
+			$sqlstatement->execute(); //execute the query
+			$result = $sqlstatement->get_result(); //return the results
+			$sqlstatement->close();
+
+			//gets discounts
+			//$sqlstatement = "SELECT product.product_ID, type, value, product_name, category, aisle_location, price, quantity_in_stock FROM discount RIGHT JOIN product ON discount.product_ID = product.product_ID";
+			//$result = $conn->query($sqlstatement); //doesn't need validation since not interacting w/ input
+			while($row = $result->fetch_assoc()) { //fetch_assoc gets next row
+			
+
+
+				echo "<div class=\"resultBox\" onclick=\"review()\">";
+
+				echo "<div class=\"reviewBox\">";
+				if($row["review_ID"] != null) {
+					$currentReviewID = $row["review_ID"];
+					$sql = "SELECT star_rating, text, submission_date FROM review where review_ID = '$currentReviewID'";
+					$reviewInfo = $conn->query($sql);
+					$reviewInfo = $reviewInfo->fetch_assoc();
+					echo "<div>";
+					echo $row["product_name"];
+					echo "</div>";
+					echo "<div>";
+					for ($i = 0; $i < $reviewInfo["star_rating"]; $i++) {echo "★";}
+					for ($i = 0; $i < 5 - $reviewInfo["star_rating"]; $i++) {echo "☆";}
+					echo "</div>";
+					echo "<div>";
+					echo $reviewInfo["submission_date"];
+					echo "</div>";
+					echo "<div>";
+					echo $reviewInfo["text"];
+					echo "</div>";
+				}
+				else {
+					echo "No reviews for this product!";
+				}
+				echo "</div>";
+
+				echo "<p class=\"resultName\">".$row["product_name"]."</p>"; //product name
+				
+				echo "<p class=\"resultLocation\">".$row["category"]." | Aisle ".$row["aisle_location"]."</p>"; //location
+
+				$newPrice = null; //discount handler
+					if($row["type"] == "new_value") {
+						$newPrice = $row["value"];
+					}
+					else if($row["type"] == "percent_off"){
+						$newPrice = number_format(round(
+													($row["price"] - ($row["value"] * $row["price"])) //og price - (-changeinprice * og price)
+													, 2),
+									2, '.', ''); //if anyone can figure out a better way to ensure prices are x.xx let me know. i hate this
+				}
+				//display price
+				if ($newPrice == null) {
+					echo "<p class=\"resultPrice\">$".$row["price"]."</p>"; //not discounted
+				}
+				else {
+					echo "<p class=\"resultPrice\">$".$newPrice." <s>$".$row["price"]."</s></p>"; //discounted
+				}
+				
+
+				echo "<hr><div class=\"resultStock\"><p>"; //stock
+				if ($row["quantity_in_stock"] > 0) {
+					echo "In Stock";
+					if ($row["quantity_in_stock"] <= 20) {
+						echo "</p><p class=\"resultLimited\">Only ".$row["quantity_in_stock"]." left!"; //less than 10 gets a special warning
+					}
+				}
+				else {
+					echo "Out of Stock!";
+				}
+				echo "</p></div>";
+				echo "</div>";
+			}	
+			
+			?>
 			</div>
 		</div>
 	</div>
 	<?php echo $html = file_get_contents('footer.html')?>
+	
 </main>
 
 
 </body>
-
-<script src="search.js">
+<script src="review.js"></script>
+<script src="search.js"></script>
 </html>
