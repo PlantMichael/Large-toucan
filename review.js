@@ -21,7 +21,7 @@ function review() {
         reviewCaller = temp.querySelector("div");
     }
     
-    // if it's the same reviewbox and it's visible a;ready
+    // if it's the same reviewbox and it's visible already
     if (reviewCaller === bees && reviewCaller.style.visibility === "visible") {
         return;
     }
@@ -30,10 +30,12 @@ function review() {
     if (reviewCaller === bees) {
         if (reviewCaller.style.visibility === "visible") {
             reviewCaller.style.visibility = "hidden";
+            reviewCaller.style.opacity = "0%";
             bees = null;
             return;
         } else {
             reviewCaller.style.visibility = "visible";
+            reviewCaller.style.opacity = "100%";
             return;
         }
     }
@@ -41,7 +43,9 @@ function review() {
     // if current reviewBox is different, hide it
     if (bees) {
         bees.style.visibility = "hidden";
+        reviewCaller.style.opacity = "0%";
     }
     reviewCaller.style.visibility = "visible";
+    reviewCaller.style.opacity = "100%";
     bees = reviewCaller;
 }

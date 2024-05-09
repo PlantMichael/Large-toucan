@@ -44,19 +44,18 @@ $purchaseInfo = $conn->query($sql);
 
     <h2>Welcome to The Nest, <?php echo $userInfo['first_name'];?>!</h2>
 
-    <hr>
-
-    <div>NestCoin™ Balance: 
+    <div id="coinBalance">NestCoin™ Balance:  
     <?php echo $userInfo['reward_points'];?>
     </div>
 
-    <hr>
+    <hr class="profileHR">
 
-    <div>
-    Available coupons:
+    <div id="userInfoWrapper">
+    <div id="userCoupons">
+    <p class ="userInfoHeader">Available Coupons:</p>
     <?php 
     while($row = $couponInfo->fetch_assoc()) {
-        echo "<div>";
+        echo "<hr class=\"userInfoHR\"><div class=\"userRow\">";
         $currentCouponID = $row['coupon_ID'];
         $sql = "SELECT reward_point_cost, description FROM coupon WHERE coupon_ID = '$currentCouponID'";
         $currentCouponInfo = $conn->query($sql);
@@ -66,20 +65,22 @@ $purchaseInfo = $conn->query($sql);
     }
     ?>
     </div>
-    <div>
-    Past orders: 
+    <div id="userLine"></div>
+    <div id="userOrders">
+    <p class ="userInfoHeader">Past orders:</p>
 
     <?php 
     while($row = $purchaseInfo->fetch_assoc()) {
-        echo "<div>";
+        echo "<hr class=\"userInfoHR\"><div class=\"userRow\">";
+        echo " $".$row['total_cost']." | "; 
         echo $row['purchase_date'];
-        echo " $".$row['total_cost'];
         echo "</div>";
     }
     ?>
 
     </div>
-    <div><input type="button" button class="button buttonSmall" value="Logout" onclick="location='/~scole26/Large-toucan/logoutCustomer.php'" /></div>
+    </div>
+    <div><input type="button" button id="logoutButton" value="Logout" onclick="location='/~scole26/Large-toucan/logoutCustomer.php'" /></div>
 
 </div>
 

@@ -22,7 +22,7 @@ ini_set('display_errors', 1);
 		<div id="filters">
 			<div><h3>Filter by:</h3>
 				<div id="activeFilters">
-					<div class="activeFilters"><div>Car<img src="img/x.svg"></div></div>
+					<!--<div class="activeFilters"><div>Peanut<img src="img/x.svg"></div></div>-->
 				</div>
 			</div>
 			<hr>
@@ -31,7 +31,7 @@ ini_set('display_errors', 1);
 				<div>Vegetable</div>
 				<div>Grain</div>
 				<div>Dairy</div>
-				<div>Produce</div>
+				<div>Protein</div>
 			</div>
 			<hr>
 			<div><h4>Price Range</h4>
@@ -99,29 +99,29 @@ ini_set('display_errors', 1);
 
 
 				echo "<div class=\"resultBox\" onclick=\"review()\">";
-
-				echo "<div class=\"reviewBox\">";
+				//ok don't tell anybody but i am realizing right now that multiple reviews will not show for a product
+				//if there are, it makes multiple product boxes appear. oh well. one review per item this is life
+				echo "<div class=\"reviewBox\">Showing reviews:";
 				if($row["review_ID"] != null) {
 					$currentReviewID = $row["review_ID"];
 					$sql = "SELECT star_rating, text, submission_date FROM review where review_ID = '$currentReviewID'";
 					$reviewInfo = $conn->query($sql);
 					$reviewInfo = $reviewInfo->fetch_assoc();
-					echo "<div>";
+					echo "<div class=\"reviewHeader\">";
+					echo "<div class=\"reviewName\">";
 					echo $row["product_name"];
-					echo "</div>";
-					echo "<div>";
+					echo "</div><div class=\"reviewDate\">";
+					echo $reviewInfo["submission_date"];
+					echo "</div></div>";
+					echo "<hr class=\"reviewHR\"><div class=\"reviewBody\"><star>";
 					for ($i = 0; $i < $reviewInfo["star_rating"]; $i++) {echo "★";}
 					for ($i = 0; $i < 5 - $reviewInfo["star_rating"]; $i++) {echo "☆";}
-					echo "</div>";
-					echo "<div>";
-					echo $reviewInfo["submission_date"];
-					echo "</div>";
-					echo "<div>";
+					echo "  </star>";
 					echo $reviewInfo["text"];
 					echo "</div>";
 				}
 				else {
-					echo "No reviews for this product!";
+					echo "<div class=\"reviewHeader\">No reviews for this product!</div>";
 				}
 				echo "</div>";
 

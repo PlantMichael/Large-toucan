@@ -645,13 +645,153 @@ footer {
 
 /*login page---------------------------------------------------------------------------------------------------------*/
 
+#loginWrapper {
+	margin: 0px auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	border-radius: 15px; /*it's pretty funny i never picked a consistent number*/
+	border: 3px solid var(--black);
+	padding: 10px;
+	width: 500px;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	row-gap: 10px;
+}
+
+#loginHR {
+	margin: 0px 30px;
+	border: 2px solid var(--green);
+	border-radius: 30px;
+}
+
+#loginWrapperOverflow {
+	width: 100%;
+}
+
+#loginInput {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.loginRow {
+	width: 70%;
+	display: flex;
+	justify-content: space-between;
+	margin: 5px 0px;
+}
+
+.loginIn {
+	text-align: left;
+	padding: 5px;
+	border: 2px solid var(--orange);
+	border-radius: 10px;
+}
+
+#loginButton {
+	background-color: var(--green);
+	padding: 5px 10px;
+	border: none;
+	margin-top: 5px;
+	border-radius: 10px;
+	font-weight: 500px;
+}
+
+#loginButton:hover {
+	background-color: var(--greenDown);
+}
+
+#loginButton:active {
+	background-color: var(--greenDown);
+	color: white;
+}
+
+/*user page---------------------------------------------------------------------------------------------------------*/
+
+#profileWrapper {
+	margin: 0px auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	border-radius: 15px; /*it's pretty funny i never picked a consistent number*/
+	border: 3px solid var(--black);
+	padding: 10px;
+	width: 500px;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	row-gap: 10px;
+}
+
+.profileHR {
+	margin: 0px 30px;
+	border: 2px solid var(--green);
+	border-radius: 30px;
+}
+
+#userInfoWrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 10px;
+	margin: 0% 10%;
+}
+
+.userInfoHeader {
+	font-weight: 500;
+	font-size: 20px;
+}
+
+#userLine {
+	border: 2px solid var(--orange);
+	border-radius: 10px;
+}
+
+.userRow {
+	text-align: left;
+	padding-left: 10px;
+	font-weight: 400;
+	
+}
+
+#logoutButton {
+	background-color: var(--green);
+	padding: 5px 10px;
+	border: none;
+	margin-top: 5px;
+	border-radius: 10px;
+}
+
+#logoutButton:hover {
+	background-color: var(--greenDown);
+}
+
+#logoutButton:active {
+	background-color: var(--greenDown);
+	color: white;
+}
+
+.userInfoHR {
+	border: 0.25px solid var(--orange);
+	margin: 5px 30px;
+}
+
+#coinBalance {
+	font-size: 20px;
+	font-weight: 500;
+}
 
 /*review---------------------------------------------------------------------------------------------------------------*/
 
 .reviewBox {
 	z-index: 1;
-	background-color: pink;
-	font-size: 60pt;
+	background-color: white;
+	font-size: 16pt;
+	color: var(--black);
+	padding: 15px;
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -660,6 +800,46 @@ footer {
 	width: 500px;
 	height: 500px;
 	border-radius: 15px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /*i wanted to get a background filter working but it was not happening*/
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.6); /*i wanted to get a background filter working but it was not happening*/
 	visibility: hidden;
+	opacity: 0%;
+	transition: opacity ease-in;
+	transition-duration: 0.2s; /*not perfect... oh well*/
+	border: 3px solid var(--black);
+}
+
+.reviewHeader {
+	padding: 15px;
+	color: black;
+}
+.reviewName {
+	font-size: 30px;
+	font-weight: 600;
+	text-align: left;
+}
+
+.reviewDate {
+	color: var(--black);
+	text-align: left;
+	font-size: 20px;
+	font-weight: 500;
+	margin-top: 5px;
+}
+
+.reviewHR {
+	border: 1.5px solid var(--orange);
+	border-radius: 15px;
+	margin: 0px 20px 0px 20px;
+}
+
+star { /*this might be against the law to do but it made me feel clever*/
+	color: var(--green);
+	font-size: 25px;
+}
+
+.reviewBody {
+	text-align: left;
+	padding: 15px;
+	font-size: 18px;
+	color: black;
 }

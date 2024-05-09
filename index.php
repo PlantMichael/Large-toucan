@@ -26,11 +26,11 @@ include '../../config/config.inc';
 <main>
 <?php echo $html = file_get_contents('header.html')?>
 	<div id="deptNav">
-		<div><a href="catalog.php">Fruit</a></div>
-		<div><a href="catalog.php">Vegetable</a></div>
-		<div><a href="catalog.php">Grain</a></div>
-		<div><a href="catalog.php">Dairy</a></div>
-		<div><a href="catalog.php">Protein</a></div>
+		<div><a href="/~scole26/Large-toucan/search.php">Fruit</a></div>
+		<div><a href="/~scole26/Large-toucan/search.php">Vegetable</a></div>
+		<div><a href="/~scole26/Large-toucan/search.php">Grain</a></div>
+		<div><a href="/~scole26/Large-toucan/search.php">Dairy</a></div>
+		<div><a href="/~scole26/Large-toucan/search.php">Protein</a></div>
 	</div>
 	<div id="splash">
 	<div id="splashGradient">

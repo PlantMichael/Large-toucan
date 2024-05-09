@@ -2,9 +2,6 @@
 <?php session_start(); //alex & https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php did all the work on this.
 include '../../config/config.inc';
 $conn = new mysqli($servername, $username, $password, $dbname);
-
-error_reporting(E_ALL); //LIGHT OF MY LIFE ENABLES DEBUGGING AND ALSO LOVE AND KINDNESS
-ini_set('display_errors', 1);
  
 // Check if the user is already logged in, if yes then redirect them to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
@@ -37,7 +34,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($email_err) && empty($password_err)){
         // Prepare a select statement
         $sql = "SELECT customer_ID, email, password FROM customer WHERE email = ?";
-        echo $sql;
         
         if($stmt = $conn->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -101,28 +97,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <main>
 <?php echo $html = file_get_contents('header.html')?>
 
-    <div class="wrapper">
-
-        <!-- Website Header -->
-        <div div class = "upper">
-            <h2>Nest Login</h2>
+    <div id="loginWrapperOverflow">
+    <div id="loginWrapper"><!--get wack overflow issues without a parent wrapper dude idk-->
+            <h2>Welcome back to The Nest.</h2>
+            <hr id="loginHR">
+            <p>Feel free to roost!</p>
 
             <!-- Email and Password Form -->
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-
+            <div id="loginInput">
                 <!-- Email -->
-	            Enter Email: &nbsp &nbsp &nbsp &nbsp &nbsp
-                <input type="text" name="email" size=30 class="form-control 
+                <div class="loginRow">
+	            Enter Email:
+                <input type="text" name="email" size=30 class="form-control loginIn
                 <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
-                
+                </div>
                 <!-- Password -->
-                <p>Enter Password: &nbsp 
-                <input type="password" name="password" size=30 class="form-control 
+                <div class="loginRow">
+                Enter Password:
+                <input type="password" name="password" size=30 class="form-control loginIn 
                 <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-                
+                </div>
                 <!-- Enter Button -->
-                <p><input type = "submit" class = "buttonSmall" value = "Enter">
-
+                <input type = "submit" id="loginButton" value = "Go!">
+            </div>
             </form>
 
             <!-- Error Messages -->
@@ -152,9 +150,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div>
 
             <?php } ?>
-
-        </div>
-
+    </div>           
     </div>
 <?php echo $html = file_get_contents('footer.html')?>
 </main>
