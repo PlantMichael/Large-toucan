@@ -684,6 +684,10 @@ footer {
 	margin: 5px 0px;
 }
 
+.loginRow > input {
+width: 60%;
+}
+
 .loginIn {
 	text-align: left;
 	padding: 5px;
@@ -842,4 +846,24 @@ star { /*this might be against the law to do but it made me feel clever*/
 	padding: 15px;
 	font-size: 18px;
 	color: black;
+}
+
+/*Our Story-------------------------------------------------------------------------------*/
+
+#storyWrapper {
+	margin: 0px auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	border-radius: 15px; /*it's pretty funny i never picked a consistent number*/
+	border: 3px solid var(--black);
+	padding: 20px;
+	width: 1000px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	row-gap: 10px;
+}
+
+#storyWrapper > p {
+	text-align: left;
 }
